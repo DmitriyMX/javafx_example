@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+mainClassName = 'example.javafx.Main'
+
+group 'example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+javafx {
+    version = '20'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+shadowJar {
+    archiveBaseName.set('javafx')
+    archiveVersion.set(project.version)
+    archiveClassifier.set('jar-with-dependencies')
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
+tasks.build.dependsOn tasks.shadowJar

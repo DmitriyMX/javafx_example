@@ -4,12 +4,20 @@
 
 ## Build
 
+### Maven
+
 ```shell
 mvn clean package
+```
+
+### Gradle
+
+```shell
+gradle clean build
 ```
 
 ## Launch
 
 ```shell
-java -jar ./target/javafx-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar javafx-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
